@@ -1,0 +1,25 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+#run ansible-playbook --list-tags tags.yml     to display all tags inside the .yml playbook
+#NB! if you want to run command towards a VM with particular Tag only, do this: ansible-playbook --tags my-apache-tag --ask-become-pass tags.yml
+   - name: install apache and php
+     tags: my-php-tag
+     package:
+        name:
+          - "{{ apache_package }}" #the value is defined in the inventory file
+          - "{{ php_package }}"
+        state: latest
+        update_cache: yes
+
+   - name: install apache and php
+     tags: my-apache-tag
+     package:
+        name:
+          - "{{ apache_package }}" #the value is defined in the inventory file
+          - "{{ php_package }}"
+        state: latest
+        update_cache: yes
