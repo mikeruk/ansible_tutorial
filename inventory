@@ -1,0 +1,8 @@
+192.168.1.20
+192.168.1.21
+
+#we do WHEN statement here, like this:
+# this will install those packages only on that single IP Vm. In the task we write {{apache_package}} to target this variable here
+192.168.1.20 apache_package=apache2 php_package=libapache2-mod-php
+#this will install the httpd only on that IP Vm
+192.168.1.21 apache_package=alien
