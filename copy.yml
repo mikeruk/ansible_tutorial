@@ -1,0 +1,15 @@
+---
+
+- hosts: testgr
+  gather_facts: yes
+
+  tasks:
+    - name: copy html file for site
+      tags: html
+      copy:
+        src: /someFolder/default_site.html
+        dest: /var/www/html/index.html
+        owner: root    #setting the owner of this file
+        group: root    #setting the group of this file
+        mode: 0644     #setting the permissions for this file
+#to run this task via command like, execute: ansible-playbook --ask-become-pass copy.yml
